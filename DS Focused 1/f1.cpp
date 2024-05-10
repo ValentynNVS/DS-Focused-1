@@ -19,8 +19,8 @@ void printFlightInfo(struct FlightInfo *flights);
 
 struct FlightInfo {
 
-	char* destination;
-	char* date;
+	char* destination = NULL;
+	char* date = NULL;
 
 };
 
@@ -46,8 +46,8 @@ int main(void) {
 		fillFlightInfo(&flight[i], destination, dateOfTheFlight);
 	}
 
-
-
+	
+	
 	printFlightInfo(flight);
 
 	return 0;
@@ -65,6 +65,7 @@ Return value: void
 */
 void fillFlightInfo(struct FlightInfo *flight, const char* destination, const char* date) {
 
+	flight->destination = (char*)malloc(strlen(destination) + 1);
 	if (flight->destination == NULL) {
 		printf("Memory allocation failed for destination\n");
 	}
