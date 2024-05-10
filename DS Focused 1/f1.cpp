@@ -26,15 +26,29 @@ struct FlightInfo {
 
 int main(void) {
 
-	char destination[kMaxStrSize] = "";
-	char dateOfTheFlight[kMaxStrSize] = "";
+
 
 	struct FlightInfo flight[kNumberOfFlights];
 
 	for (int i = 0; i < kNumberOfFlights; i++) {
 
+		char destination[kMaxStrSize] = "";
+		char dateOfTheFlight[kMaxStrSize] = "";
 
+		printf("Enter the name of a destination of a flight\n");
+		fgets(destination, kMaxStrSize, stdin);
+		destination[strcspn(destination, "\n")] = '\0';
+
+		printf("Enter date for flight %d: ", i + 1);
+		fgets(dateOfTheFlight, kMaxStrSize, stdin);
+		dateOfTheFlight[strcspn(dateOfTheFlight, "\n")] = '\0';
+
+		fillFlightInfo(&flight[i], destination, dateOfTheFlight);
 	}
+
+
+
+	printFlightInfo(flight);
 
 	return 0;
 }
@@ -50,6 +64,7 @@ Description: Thhis fucntion fills in the struct field and allocates memory block
 Return value: void
 */
 void fillFlightInfo(struct FlightInfo* flight, const char* destination, const char* date) {
+
 
 
 
