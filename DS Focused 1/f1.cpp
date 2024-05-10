@@ -66,6 +66,23 @@ Return value: void
 void fillFlightInfo(struct FlightInfo* flight, const char* destination, const char* date) {
 
 
+	flight->destination = (char*)malloc(strlen(destination) + 1);
+	if (destination == NULL) {
+		printf("Memory allocation failed in \n");
+	}
+	else {
+		strcpy(flight->destination, destination);
+	}
+
+
+	flight->date = (char*)malloc(strlen(date) + 1);
+	if (date == NULL) {
+		printf("Mememory allocation failed in date\n");
+	}
+	else{
+		strcpy(flight->date, date);
+
+	}
 
 
 }
@@ -79,5 +96,9 @@ Return value: void
 */
 void printFlightInfo(struct FlightInfo* flights) {
 
-	
+	printf("%-35s%-35s\n", "Destination", "Date");
+
+	for (int i = 0; i < 10; ++i) {
+		printf("%-35s%-35s\n", flights[i].destination, flights[i].date);
+	}
 }
