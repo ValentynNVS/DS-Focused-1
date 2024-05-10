@@ -6,6 +6,8 @@
 const int kMaxStrSize = 30;
 const int kNumberOfFlights = 10;
 
+int fillFlightInfo(struct FlightInfo *flight, const char* destination, const char* date);
+int printFlightInfo(struct FlightInfo* flights);
 
 struct FlightInfo {
 
@@ -27,4 +29,16 @@ int main(void) {
 	}
 
 	return 0;
+}
+
+
+int fillFlightInfo(struct FlightInfo* flight, const char* destination, const char* date) {
+
+
+
+}
+
+int printFlightInfo(struct FlightInfo* flights) {
+
+	
 }
