@@ -10,12 +10,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+#pragma warning(disable: 4996);
 const int kMaxStrSize = 30;
 const int kNumberOfFlights = 10;
 
 void fillFlightInfo(struct FlightInfo *flight, const char* destination, const char* date);
-void printFlightInfo(struct FlightInfo* flights);
+void printFlightInfo(struct FlightInfo *flights);
 
 struct FlightInfo {
 
@@ -63,28 +63,22 @@ Parameters: struct FlightInfo* flight - a pointer to a struct FlightInfo (which 
 Description: Thhis fucntion fills in the struct field and allocates memory blocks
 Return value: void
 */
-void fillFlightInfo(struct FlightInfo* flight, const char* destination, const char* date) {
+void fillFlightInfo(struct FlightInfo *flight, const char* destination, const char* date) {
 
-
-	flight->destination = (char*)malloc(strlen(destination) + 1);
-	if (destination == NULL) {
-		printf("Memory allocation failed in \n");
+	if (flight->destination == NULL) {
+		printf("Memory allocation failed for destination\n");
 	}
 	else {
 		strcpy(flight->destination, destination);
 	}
 
-
 	flight->date = (char*)malloc(strlen(date) + 1);
-	if (date == NULL) {
-		printf("Mememory allocation failed in date\n");
+	if (flight->date == NULL) {
+		printf("Memory allocation failed for date\n");
 	}
-	else{
+	else {
 		strcpy(flight->date, date);
-
 	}
-
-
 }
 
 
